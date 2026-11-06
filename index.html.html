@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Two months of us</title>
+<link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fbe9ee;--card:#fff8f5;--ink:#4a1a2c;--soft:#8a5568;--thread:#c8325a;--track:#f0c9d4;--on:#fff;--gold:#d9962b;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#2a1220;--card:#3a1b2e;--ink:#ffe8ef;--soft:#d9a8ba;--thread:#ff7a9c;--track:#4d2a3f;--on:#2a1220;--gold:#ffc46b}}
+:root[data-theme="dark"]{--bg:#2a1220;--card:#3a1b2e;--ink:#ffe8ef;--soft:#d9a8ba;--thread:#ff7a9c;--track:#4d2a3f;--on:#2a1220;--gold:#ffc46b}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Quicksand,system-ui,sans-serif;line-height:1.65;overflow-x:hidden}
+h1,h2{font-family:"Young Serif",Georgia,serif;font-weight:400;margin:0}
+#fx{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+header,main,.end{position:relative;z-index:1}
+header{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:2rem 1.5rem}
+.badge{width:min(250px,68vw);aspect-ratio:1;position:relative;opacity:0;transform:scale(.4) rotate(-40deg);animation:badge 1.3s .2s cubic-bezier(.2,1.3,.4,1) forwards}
+@keyframes badge{to{opacity:1;transform:none}}
+.badge svg{position:absolute;inset:0;width:100%;height:100%}
+.ring{animation:spin 28s linear infinite;transform-origin:50% 50%}
+@keyframes spin{to{transform:rotate(360deg)}}
+.ring text{fill:var(--soft);font-family:Quicksand,sans-serif;font-size:11.5px;font-weight:600;letter-spacing:.14em}
+.core{position:absolute;inset:17%;border-radius:50%;background:var(--thread);color:var(--on);display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 14px 40px rgba(200,50,90,.35)}
+.core::after{content:"";position:absolute;inset:-8px;border-radius:50%;border:2px solid var(--thread);opacity:0;animation:ripple 2.6s 1.6s infinite}
+@keyframes ripple{0%{opacity:.6;transform:scale(.95)}100%{opacity:0;transform:scale(1.3)}}
+.core b{font-family:"Young Serif",serif;font-weight:400;font-size:4.4rem;line-height:1}
+.core small{font-weight:600;font-size:.95rem;letter-spacing:.05em}
+.line{overflow:hidden;display:block}
+.line>span{display:block;transform:translateY(110%);animation:rise .9s cubic-bezier(.2,.8,.2,1) forwards}
+@keyframes rise{to{transform:none}}
+h1{font-size:clamp(2.2rem,9vw,3.6rem);line-height:1.15;margin-top:2rem}
+.sub{color:var(--soft);max-width:24rem;margin:.9rem 0 0}
+.hint{position:absolute;bottom:1.6rem;color:var(--soft);font-size:.9rem;animation:bob 1.8s ease-in-out infinite;opacity:0;animation-delay:2.6s;animation-fill-mode:forwards}
+@keyframes bob{0%{opacity:0;transform:translateY(0)}30%{opacity:1}50%{transform:translateY(8px)}100%{opacity:1;transform:translateY(0)}}
+main{position:relative;max-width:34rem;margin:0 auto;padding:1rem 1.5rem 3rem 3.4rem}
+.rail{position:absolute;left:1.5rem;top:0;bottom:0;width:4px;border-radius:2px;background:var(--track)}
+.fill{position:absolute;left:0;top:0;width:100%;height:0;background:var(--thread);border-radius:2px}
+.tip{position:absolute;left:-8px;bottom:-9px;width:20px;height:20px;border-radius:50%;background:var(--thread);box-shadow:0 0 0 0 var(--thread);animation:pulse 1.6s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 14px transparent}100%{box-shadow:0 0 0 0 transparent}}
+.memory{position:relative;margin:0 0 2.8rem;background:var(--card);border-radius:18px 18px 18px 4px;padding:1.3rem 1.4rem;--r:-.5deg;opacity:0;transform:translateY(46px) rotate(calc(var(--r) - 4deg)) scale(.95);transition:opacity .8s ease,transform 1s cubic-bezier(.2,1.2,.4,1);box-shadow:0 10px 30px rgba(120,30,60,.08)}
+.memory:nth-of-type(even){--r:.6deg}
+.memory.in{opacity:1;transform:rotate(var(--r))}
+.memory::before{content:"";position:absolute;left:-2.15rem;top:1.5rem;width:16px;height:16px;border-radius:50%;background:var(--bg);border:4px solid var(--thread);transform:scale(0);transition:transform .6s .35s cubic-bezier(.2,1.8,.4,1)}
+.memory.in::before{transform:scale(1)}
+.memory time{display:block;color:var(--thread);font-weight:600;font-size:.95rem}
+.memory h2{font-size:1.45rem;margin:.1rem 0 .4rem}
+.memory p{margin:0;color:var(--soft)}
+.end{text-align:center;padding:1rem 1.5rem 6rem;max-width:34rem;margin:0 auto}
+button{font:inherit;font-weight:600;background:var(--thread);color:var(--on);border:0;border-radius:999px;padding:1rem 2.2rem;cursor:pointer;animation:pulse 2s infinite;transition:transform .2s}
+button:active{transform:scale(.94)}
+button:focus-visible{outline:3px solid var(--ink);outline-offset:4px}
+.letter{display:none;text-align:left;margin-top:2rem;padding:1.8rem;background:var(--card);border-radius:22px;box-shadow:0 14px 40px rgba(120,30,60,.12)}
+.letter.open{display:block;animation:unfold .9s cubic-bezier(.2,1,.3,1)}
+@keyframes unfold{from{opacity:0;transform:translateY(30px) scale(.9)}}
+.letter h2{font-size:1.7rem;color:var(--thread);margin-bottom:.8rem}
+.letter p{margin:.7rem 0;opacity:0;transform:translateY(12px);transition:opacity .8s,transform .8s}
+.letter p.show{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){*,*::before{animation-duration:.01s!important;animation-delay:0s!important;transition-duration:.01s!important}}
+</style>
+</head>
+<body>
+<canvas id="fx"></canvas>
+<header>
+  <div class="badge">
+    <svg viewBox="0 0 200 200" aria-hidden="true"><defs><path id="c" d="M100 100m-86 0a86 86 0 1 1 172 0a86 86 0 1 1-172 0"/></defs>
+      <g class="ring"><text><textPath href="#c">two months together ♥ countless memories ♥ forever ♥ </textPath></text></g></svg>
+    <div class="core"><b id="num">2</b><small>months</small></div>
+  </div>
+  <h1 aria-label="Two months of us"><span class="line"><span style="animation-delay:1.3s">Two months</span></span><span class="line"><span style="animation-delay:1.55s">of us</span></span></h1>
+  <p class="sub line"><span style="animation-delay:1.9s">Two months together, countless little memories.<br>Every moment with you feels special.</span></p>
+  <span class="hint">scroll down</span>
+</header>
+
+<main id="main">
+  <div class="rail"><div class="fill" id="fill"><div class="tip"></div></div></div>
+  <article class="memory"><time>15 July</time><h2>The day we first met</h2><p>I didn’t know that a simple meeting would turn into so many beautiful memories. I’m glad our paths crossed.</p></article>
+  <article class="memory"><time>22 July</time><h2>Our first date ❤️</h2><p>Our first little adventure together. A day I’ll always remember, not because of where we went, but because I got to spend it with you.</p></article>
+  <article class="memory"><h2>Your beautiful smile</h2><p>Sometimes, just seeing you smile makes my entire day better. You have no idea how special that is to me.</p></article>
+  <article class="memory"><time>7 September</time><h2>The day I opened my heart ❤️</h2><p>The day I finally said everything I had been keeping inside. All my feelings, all my little thoughts, and everything I wanted you to know. It felt scary, but also beautiful to let my heart speak.</p></article>
+  <article class="memory"><time>7 November</time><h2>Two months of us</h2><p>Two months down, and so many beautiful memories to cherish. I’m grateful for every little moment with you. Here’s to many more.</p></article>
+</main>
+
+<section class="end">
+  <button id="open" aria-expanded="false">Happy 2 Months ❤️</button>
+  <div class="letter" id="letter">
+    <h2>To My Love,</h2>
+    <p>I don’t know how to explain how much these two months mean to me.</p>
+    <p>Thank you for every smile, every conversation, and every little moment. You’ve become such a beautiful part of my life.</p>
+    <p>I love the little things about you, especially your smile and the way you make ordinary moments feel special.</p>
+    <p>I hope we create countless more memories, share endless laughter, and stay beside each other through every little up and down.</p>
+    <p>And one little request—please never hurt me intentionally. My feelings for you are genuine, and I hope we always treat each other’s hearts with love, care, and understanding.</p>
+    <p>Happy 2 Months, My Love. ❤️</p>
+    <p>Forever yours. ❤️</p>
+  </div>
+</section>
+
+<script>
+(function(){
+  var rm=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var main=document.getElementById('main'),fill=document.getElementById('fill');
+  function upd(){var r=main.getBoundingClientRect();fill.style.height=Math.max(0,Math.min(r.height,innerHeight*0.65-r.top))+'px'}
+  addEventListener('scroll',upd,{passive:true});addEventListener('resize',upd);upd();
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.25});
+  document.querySelectorAll('.memory').forEach(function(m){io.observe(m)});
+  // soft rising hearts + confetti
+  var cv=document.getElementById('fx'),cx=cv.getContext('2d'),W,H,hs=[],cf=[],tt=0;
+  function size(){W=cv.width=innerWidth;H=cv.height=innerHeight}size();addEventListener('resize',size);
+  function col(){return getComputedStyle(document.documentElement).getPropertyValue('--thread').trim()||'#c8325a'}
+  function heart(x,y,s,c,a,rot){cx.save();cx.globalAlpha=a;cx.fillStyle=c;cx.translate(x,y);cx.rotate(rot||0);cx.scale(s,s);cx.beginPath();cx.moveTo(0,4);cx.bezierCurveTo(-8,-4,-3,-9,0,-4);cx.bezierCurveTo(3,-9,8,-4,0,4);cx.fill();cx.restore()}
+  function burst(){var cs=[col(),'#f2a0b5','#e8b04a','#ffffff'];for(var k=0;k<80;k++){var a=Math.random()*6.28,v=4+Math.random()*9;cf.push({x:W/2,y:H*.55,vx:Math.cos(a)*v,vy:Math.sin(a)*v-5,s:.9+Math.random()*1.5,c:cs[k%4],l:1,r:Math.random()*6})}}
+  function loop(){tt+=.02;cx.clearRect(0,0,W,H);var c=col();
+    if(!rm&&Math.random()<.025&&hs.length<12)hs.push({x:Math.random()*W,y:H+20,s:1+Math.random()*2.2,v:.35+Math.random()*.6,p:Math.random()*6});
+    hs=hs.filter(function(h){h.y-=h.v;h.x+=Math.sin(tt+h.p)*.35;heart(h.x,h.y,h.s,c,.22,Math.sin(tt+h.p)*.3);return h.y>-20});
+    cf=cf.filter(function(p){p.x+=p.vx;p.y+=p.vy;p.vy+=.22;p.vx*=.985;p.l-=.008;p.r+=.1;heart(p.x,p.y,p.s,p.c,Math.max(0,p.l),p.r);return p.l>0});
+    requestAnimationFrame(loop)}
+  loop();
+  var b=document.getElementById('open'),l=document.getElementById('letter'),ps=l.querySelectorAll('p');
+  b.addEventListener('click',function(){
+    if(l.classList.contains('open'))return;
+    l.classList.add('open');b.setAttribute('aria-expanded','true');
+    if(!rm)burst();
+    ps.forEach(function(p,k){setTimeout(function(){p.classList.add('show')},500+k*1100)});
+    setTimeout(function(){l.scrollIntoView({behavior:rm?'auto':'smooth',block:'center'})},100);
+  });
+})();
+</script>
+</body>
+</html>
